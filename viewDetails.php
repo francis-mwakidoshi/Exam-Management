@@ -14,8 +14,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
-		<link href="../css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+		<link href="css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -32,7 +32,8 @@
 					</div>
 				  </div>
 				  <div class="col-sm-6 clearfix">
-                    <ul class="navbar-nav float-end ms-auto py-4 py-lg-0">                  
+                    <ul class="navbar-nav float-end ms-auto py-4 py-lg-0"> 
+                        <li class="nav-item"><a class="nav-link" href="examOfficer.php">Manage Users</a></li>					
 						<li class="nav-item">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,65 +57,63 @@
 <!-- Services-->
          <section class="page-section" id="services">
             <div class="container-fluid">
-                <div class="row pt-3 text-center">
+				  <p class="display-6">Exam Room Details</p>
+				   <table id="example" class="table table-striped table-hover" style="width:100%">
+					<thead>
+						<tr>
+						    <th>Department</th>
+							<th>Exam Venue</th>
+							<th>Exam Name</th>
+							<th>Exam Code</th>
+							<th>Number of Students Present</th>
+							<th>Collected By</th>
+							<th>Date collected</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Sarah N</td>
+							<td>test</td>
+							<td>ICT</td>
+							<td>Francis M</td>
+							<td>test</td>
+							<td>BMCS</td>
+							<td>BMCS</td>
+							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
+							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
+						</tr>
+						<tr>
+							<td>Francis M</td>
+							<td>admin</td>
+							<td>IT</td>
+							<td>Francis M</td>
+							<td>test</td>
+							<td>BMCS</td>
+							<td>BMCS</td>
+							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
+							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+						  <th>Department</th>
+							<th>Exam Venue</th>
+							<th>Exam Name</th>
+							<th>Exam Code</th>
+							<th>Number of Students Present</th>
+							<th>Collected By</th>
+							<th>Date collected</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
+						</tr>
+					</tfoot>
+				</table>
 				
-				  <div class="col-md-4">				 					
-					<div class="card text-dark bg-light m-2">
-					  <h5 class="card-header">Create New User</h5>
-					  <div class="card-body">
-						 <form class="form-horizontal" action="/action_page.php">
-						   <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="fullName" placeholder="Enter Full Names">
-								</div>
-							  </div>
-							  </br>
-							  <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="userName" placeholder="Enter UserName">
-								</div>
-							  </div>
-							  </br>
-							   <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="password" placeholder="Enter Password">
-								</div>
-							  </div>
-							  </br>
-							   <div class="form-group">
-							   <div class="col-sm-10">
-								<select class="form-select">
-								  <option>---Select Department--</option>
-								  <option>IT</option>
-								  <option>BMCS</option>
-								  <option>BCOM</option>
-								</select>
-								</div>
-							  </div>
-							  </br>
-							     <div class="form-group">
-							   <div class="col-sm-10">
-								<select class="form-select">
-								  <option>---Select Role--</option>
-								  <option>Exam Officer</option>
-								  <option>Lecturer</option>
-								</select>
-								</div>
-							  </div>
-							  </br>
-							  <div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
-								</div>
-							  </div>
-							</form>
-					  </div>
-					</div> 
-					
-				  
-				  </div>
-				  <div class="col-md-8">
-				  <p class="display-6">List of Users</p>
+				</br>
+				 
+				  <p class="display-6">Scripts Collection| Return Form Details</p>
 				   <table id="example" class="table table-striped table-hover" style="width:100%">
 					<thead>
 						<tr>
@@ -162,17 +161,19 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Full Name</th>
-							<th>User Name</th>
-							<th>Department</th>
-							<th>Role</th>
-							<th>Update</th>
-							<th>Delete</th>
+						    <th>Department</th>
+							<th>Exam Venue</th>
+							<th>Exam Name</th>
+							<th>Exam Code</th>
+							<th>Number of Students Present</th>
+							<th>Collected By</th>
+							<th>Date collected (date and time):</th>
+							<th>Update User</th>
+							<th>Delete Record</th>
 						</tr>
 					</tfoot>
 				</table>
-			  </div>
-			</div>
+		
 			</div>
         </section>    
        
@@ -495,11 +496,11 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="../js/jquery-3.6.0.min.js"></script>
-		<script src="../js/jquery.dataTables.min.js"></script>
-		<script src="../js/dataTables.bootstrap5.js"></script>
-		<script src="../js/scripts.js"></script>
-		<script src="../js/init.js"></script>
+        <script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/dataTables.bootstrap5.js"></script>
+		<script src="js/scripts.js"></script>
+		<script src="js/init.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
