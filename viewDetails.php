@@ -67,7 +67,7 @@
 							<th>Exam Code</th>
 							<th>Number of Students Present</th>
 							<th>Collected By</th>
-							<th>Date collected</th>
+							<th>Date Collected</th>
 							<th>Update Record</th>
 							<th>Delete Record</th>
 						</tr>
@@ -104,7 +104,7 @@
 							<th>Exam Code</th>
 							<th>Number of Students Present</th>
 							<th>Collected By</th>
-							<th>Date collected</th>
+							<th>Date Collected</th>
 							<th>Update Record</th>
 							<th>Delete Record</th>
 						</tr>
