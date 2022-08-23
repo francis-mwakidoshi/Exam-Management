@@ -33,8 +33,8 @@
 				  </div>
 				  <div class="col-sm-6 clearfix">
                     <ul class="navbar-nav float-end ms-auto py-4 py-lg-0"> 
-                        <li class="nav-item"><a class="nav-link" href="viewExamRoomDetails.php">View Exam Room Details</a></li>	
-                        <li class="nav-item"><a class="nav-link" href="viewScriptsDetails.php">View Scripts Details</a></li>							
+					  <li class="nav-item"><a class="nav-link" href="viewExamRoomDetails.php">View Exam Room Details</a></li>	
+                        <li class="nav-item"><a class="nav-link" href="examOfficer.php">Manage Users</a></li>					
 						<li class="nav-item">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,74 +58,19 @@
 <!-- Services-->
          <section class="page-section" id="services">
             <div class="container-fluid">
-                <div class="row pt-3 text-center">
-				
-				  <div class="col-md-4">				 					
-					<div class="card text-dark bg-light m-2">
-					  <h5 class="card-header">Create New User</h5>
-					  <div class="card-body">
-						 <form class="form-horizontal" action="/action_page.php">
-						   <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="fullName" placeholder="Enter Full Names">
-								</div>
-							  </div>
-							  </br>
-							  <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="userName" placeholder="Enter UserName">
-								</div>
-							  </div>
-							  </br>
-							   <div class="form-group">
-								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="password" placeholder="Enter Password">
-								</div>
-							  </div>
-							  </br>
-							   <div class="form-group">
-							   <div class="col-sm-10">
-								<select class="form-select">
-								  <option>---Select Department--</option>
-								  <option>IT</option>
-								  <option>BMCS</option>
-								  <option>BCOM</option>
-								</select>
-								</div>
-							  </div>
-							  </br>
-							     <div class="form-group">
-							   <div class="col-sm-10">
-								<select class="form-select">
-								  <option>---Select Role--</option>
-								  <option>Exam Officer</option>
-								  <option>Lecturer</option>
-								</select>
-								</div>
-							  </div>
-							  </br>
-							  <div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
-								</div>
-							  </div>
-							</form>
-					  </div>
-					</div> 
-					
-				  
-				  </div>
-				  <div class="col-md-8">
-				  <p class="display-6">List of Users</p>
+				 
+				  <p class="display-6">Scripts Collection| Return Form Details</p>
 				   <table id="example" class="table table-striped table-hover" style="width:100%">
 					<thead>
 						<tr>
-						    <th>Full Name</th>
-							<th>User Name</th>
-							<th>Department</th>
-							<th>Role</th>
-							<th>User</th>
-							<th>Action</th>
+						   <th>Lecturer`s Name</th>
+							<th>Exam Name</th>
+							<th>Exam Code</th>
+							<th>Number of Scripts</th>
+							<th>Lecturer`s Contact</th>
+							<th>Satus</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -134,6 +79,8 @@
 							<td>test</td>
 							<td>BMCS</td>
 							<td>Exam Officer</td>
+								<td>IT</td>
+							<td>Lecturer</td>
 							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
 							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
 						</tr>
@@ -142,21 +89,7 @@
 							<td>test</td>
 							<td>IT</td>
 							<td>Lecturer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Sarah N</td>
-							<td>test</td>
-							<td>ICT</td>
-							<td>Exam Officer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>admin</td>
-							<td>IT</td>
+								<td>IT</td>
 							<td>Lecturer</td>
 							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
 							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
@@ -164,17 +97,18 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Full Name</th>
-							<th>User Name</th>
-							<th>Department</th>
-							<th>Role</th>
-							<th>Update</th>
-							<th>Delete</th>
+						    <th>Lecturer`s Name</th>
+							<th>Exam Name</th>
+							<th>Exam Code</th>
+							<th>Number of Scripts</th>
+							<th>Lecturer`s Contact</th>
+							<th>Satus</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
 						</tr>
 					</tfoot>
 				</table>
-			  </div>
-			</div>
+		
 			</div>
         </section>    
        

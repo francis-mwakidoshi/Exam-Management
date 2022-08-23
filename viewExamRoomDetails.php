@@ -32,7 +32,8 @@
 					</div>
 				  </div>
 				  <div class="col-sm-6 clearfix">
-                    <ul class="navbar-nav float-end ms-auto py-4 py-lg-0"> 
+                    <ul class="navbar-nav float-end ms-auto py-4 py-lg-0">
+					   <li class="nav-item"><a class="nav-link" href="viewScriptsDetails.php">View Scripts Details</a></li>	
                         <li class="nav-item"><a class="nav-link" href="examOfficer.php">Manage Users</a></li>					
 						<li class="nav-item">
 							<div class="dropdown">
@@ -106,69 +107,6 @@
 							<th>Collected By</th>
 							<th>Date Collected</th>
 							<th>Update Record</th>
-							<th>Delete Record</th>
-						</tr>
-					</tfoot>
-				</table>
-				
-				</br>
-				 
-				  <p class="display-6">Scripts Collection| Return Form Details</p>
-				   <table id="example" class="table table-striped table-hover" style="width:100%">
-					<thead>
-						<tr>
-						    <th>Full Name</th>
-							<th>User Name</th>
-							<th>Department</th>
-							<th>Role</th>
-							<th>User</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>BMCS</td>
-							<td>Exam Officer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>IT</td>
-							<td>Lecturer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Sarah N</td>
-							<td>test</td>
-							<td>ICT</td>
-							<td>Exam Officer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>admin</td>
-							<td>IT</td>
-							<td>Lecturer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-						    <th>Department</th>
-							<th>Exam Venue</th>
-							<th>Exam Name</th>
-							<th>Exam Code</th>
-							<th>Number of Students Present</th>
-							<th>Collected By</th>
-							<th>Date collected (date and time):</th>
-							<th>Update User</th>
 							<th>Delete Record</th>
 						</tr>
 					</tfoot>

@@ -77,13 +77,13 @@
 							    </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examName" placeholder="Enter Name of Exam">
+								  <input type="text" class="form-control" id="examName" placeholder="Enter Exam Name">
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examCode" placeholder="Enter Code of Exam">
+								  <input type="text" class="form-control" id="examCode" placeholder="Enter Exam Code">
 								</div>
 							  </div>
 							  </br>
