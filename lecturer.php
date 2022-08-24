@@ -1,3 +1,6 @@
+<?php
+require 'mysqlConnect.php';
+?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -89,7 +92,7 @@
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="studentsPresents" placeholder="Enter number of students present">
+								  <input type="text" class="form-control" id="studentsPresent" placeholder="Enter number of students present">
 								</div>
 							  </div>
 							
@@ -123,7 +126,7 @@
 					<div class="card text-dark bg-light m-2">
 					  <h5 class="card-header">Scripts Collection| Return Form</h5>
 					  <div class="card-body">
-						 <form class="form-horizontal" action="/action_page.php">
+						 <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
 							  <div class="form-group">
 								<div class="col-sm-10">
 								  <input type="text" class="form-control" id="lecturesName" placeholder="Enter Lecturer`s Name">
@@ -155,16 +158,16 @@
 							  </div>
 							 </br>
 							   <label class="radio-inline">
-								  <input type="radio" name="pick" checked>Pick
+								  <input type="radio" name="status" checked>Pick
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="return">Return
+								  <input type="radio" name="status">Return
 								</label>
 								
 							  </br>
 							  <div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
+								  <button type="submit" class="btn btn-primary" name="subScript" style= "float:right;">Submit</button>
 								</div>
 							  </div>
 							</form>
@@ -212,5 +215,38 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		
+		<?php 
+			if(isset($_POST['subScript'])){
+				$lecturesName=mysqli_real_escape_string($con,$_POST['lecturesName']);
+				$examName = mysqli_real_escape_string($con,$_POST['examName']);
+				$examCode=mysqli_real_escape_string($con,$_POST['examCode']);
+				$numberOfScripts=mysqli_real_escape_string($con,$_POST['numberOfScripts']);
+				$LecturerContact=mysqli_real_escape_string($con,$_POST['LecturerContact']);
+				$status=mysqli_real_escape_string($con,$_POST['status']);
+
+
+			   if($lecturesName==''&& $examName==''&& $examCode=='' && $numberOfScripts=='' && $LecturerContact==''){
+				echo"<script>alert('please fill all field')</script>";
+				echo"<script>window.open('lecturer.php','_self')</script>";
+				exit();
+			 }
+
+			else{
+
+				$insert="INSERT INTO `scriptscollection` (`id`, `lecturesName`, `examName`, `examCode`, `numberOfScripts` , `LecturerContact`,'status') VALUES (NULL, '$lecturesName', '$examName', '$examCode', '$numberOfScripts' , '$LecturerContact','$status');";
+				$run_insert=mysqli_query($con,$insert);
+				if($run_insert){
+					echo"<script>alert('Successful added!')</script>";
+					echo"<script>window.open('lecturer.php','_self')</script>";
+
+				}
+				else{
+					echo"<script>alert('Error please try again')</script>";
+					echo"<script>window.open('lecturer.php','_self')</script>";
+				}
+		}}
+
+		?>
     </body>
 </html>

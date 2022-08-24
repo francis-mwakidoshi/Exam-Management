@@ -119,7 +119,7 @@
 						  <div class="col-lg-8">
                             <div class="m-4 p-4 shadow">
                                 <div class="modal-body">
-                                    <form action="hub/index.php">
+                                    <form action="index.php">
 											<div class="input-group mb-3 input-group-lg">
 												  <span class="input-group-text"><i class="fa-solid fa-user-check"></i></span>
 												  <input type="text" class="form-control" id="email" placeholder="Enter username" name="email">
