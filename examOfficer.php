@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'mysqlConnect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -126,56 +130,55 @@
 				   <table id="example" class="table table-striped table-hover" style="width:100%">
 					<thead>
 						<tr>
+						    <th>ID</th>
 						    <th>Full Name</th>
 							<th>User Name</th>
 							<th>Department</th>
 							<th>Role</th>
-							<th>User</th>
-							<th>Action</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>BMCS</td>
-							<td>Exam Officer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>IT</td>
-							<td>Lecturer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Sarah N</td>
-							<td>test</td>
-							<td>ICT</td>
-							<td>Exam Officer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>admin</td>
-							<td>IT</td>
-							<td>Lecturer</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update User</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete User</button></td>
-						</tr>
+						 <?php
+								$sel = "select * from users";
+								$run = mysqli_query($con, $sel);
+								$i = 0;
+								while ($row = mysqli_fetch_array($run))
+								{
+				
+									$id = $row['id'];
+									$fullName = $row['fullName'];
+									$userName = $row['userName'];
+									$department = $row['department'];
+									$role = $row['role'];
+									//$LecturerContact = $row['LecturerContact'];
+									//$status = $row['status'];
+									
+									$i++;
+							?>
+							<tr>
+							<td><?php echo $id; ?></td>
+							<td><?php echo $fullName; ?></td>
+							<td><?php echo $userName; ?></td>
+							<td><?php echo $department; ?></td>
+							<td><?php echo $role; ?></td>
+							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
+							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
+							<!-- <td><a href="audit.php? delete=<?php echo $id; ?>" class="delete">Delete</a></td> -->
+							</tr>
+							<?php
+								} ?>
 					</tbody>
 					<tfoot>
 						<tr>
+						    <th>ID</th>
 							<th>Full Name</th>
 							<th>User Name</th>
 							<th>Department</th>
 							<th>Role</th>
-							<th>Update</th>
-							<th>Delete</th>
+							<th>Update Record</th>
+							<th>Delete Record</th>
 						</tr>
 					</tfoot>
 				</table>

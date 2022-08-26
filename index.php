@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'mysqlConnect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -122,7 +126,7 @@
                                     <form action="index.php">
 											<div class="input-group mb-3 input-group-lg">
 												  <span class="input-group-text"><i class="fa-solid fa-user-check"></i></span>
-												  <input type="text" class="form-control" id="email" placeholder="Enter username" name="email">
+												  <input type="text" class="form-control" id="userName" placeholder="Enter username" name="userName">
 											</div>
 
 											 <div class="input-group mb-3 input-group-lg">
@@ -137,7 +141,7 @@
 											  </label>
 											</div> -->
 											<div class="p-4">
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="submit">
+												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" name="login" type="submit">
 													<i class="fa-solid fa-circle-check"></i>
 													Login
 												</button>
@@ -147,6 +151,44 @@
 												</button>
 											</div>
 										  </form>
+										  
+										  <?php
+												if(isset($_POST['login'])){
+												$password=mysqli_real_escape_string($con,$_POST['password']);
+												$userName=mysqli_real_escape_string($con,$_POST['userName']);
+
+												$sel="select * from users where userName='$userName'";
+												$result=mysqli_query($con,$sel);
+												if(mysqli_num_rows($result) > 0)
+												{
+
+												  while($row = mysqli_fetch_array($result))
+												  {
+													if(password_verify($password, $row["password"]))
+													{
+													  //return true
+													  $_SESSION['userName']=$userName;
+													  $_SESSION['role']=$row['role'];
+													  //echo"<script>window.open('home.php','_self')</script>";
+													  header("location: examOfficer.php");
+													}
+													else
+													{
+													  //return false
+													   echo"<script>alert('wrong user details,try again!')</script>";
+													   echo"<script>window.open('index.php','_self')</script>";
+													   exit();
+													}
+												  }
+												}
+												else{
+
+													echo"<script>alert('wrong user details,try again!')</script>";
+													echo"<script>window.open('index.php','_self')</script>";
+													exit();
+												}
+												}
+												?>
                                     
                                 </div>
                             </div>
