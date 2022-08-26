@@ -214,7 +214,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
 												 <input type="text" class="form-control" id="examCode" name="examCode" value="Exam Code" disabled>
 											</div>
 											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">students Present &nbsp;<i class="fa-solid fa-user-check"></i></span> 
+												  <span class="input-group-text">Number Of Students Present &nbsp;<i class="fa-solid fa-user-check"></i></span> 
 												  
 												   <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" value="studentsPresent" disabled>
 											</div>
