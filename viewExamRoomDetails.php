@@ -117,7 +117,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
 							<td><?php echo $studentsPresent; ?></td>
 							<td><?php echo $collectedBy; ?></td>
 							<td><?php echo $examdaytime; ?></td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
+							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" href="#roomUpdateModal">Update Record</button></td>
 							<td><a href="viewExamRoomDetails.php? delete=<?php echo $id; ?>" class="delete"><button type="button" class="btn btn-danger btn-sm">Delete Record</button></a></td>
 							</tr>
 							<?php
@@ -176,10 +176,10 @@ if ($_SESSION['role'] !=  'Exam Officer')
 		
 		<!-- debtorupdateModal Modals-->
         <!-- debtorupdateModal modal popup-->
-        <div class="portfolio-modal modal fade" id="debtorupdateModal"  role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="roomUpdateModal"  role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <span class="close-modal" data-bs-dismiss="modal"><img src="../assets/img/close-icon.svg" alt="Close modal" /></span>
+                    <span class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></span>
                     <div class="container">
                         <div class="justify-content-center">
 						  <div class="">
@@ -189,44 +189,44 @@ if ($_SESSION['role'] !=  'Exam Officer')
 								
 								<div class="">  <!--<div class="card mb-3 shadow">-->
 								  <div class="row g-0">
-									<div class="col-md-4 my-4">
-									  <img src="../assets/img/creditscore.png" class="img-fluid rounded-start" alt="...">
-									</div>
 									<div class="col-md-8">
 									  <div class="card-body">
 										<form action="#">
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-check"></i></span> 
-												  <input type="button" class="form-control" value="Francis Mrongo" disabled>
-											</div>
-
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">National ID  &nbsp;<i class="fa-solid fa-address-card"></i></span> 
-												  <input type="button" class="form-control" value="28213265" disabled>
-											</div>
-											
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Phone  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa-solid fa-phone"></i></span> 
-												  <input type="button" class="form-control" value="254712343982" disabled>
-											</div>
-											
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Amount (Ksh.)  <i class="fa-solid fa-sack-dollar"></i></span> 
-												  <input type="button" class="form-control" value="23500" disabled>
-											</div>
-											
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa-brands fa-nfc-directional"></i></span> 
+										  	<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Department &nbsp; <i class="fa-brands fa-nfc-directional"></i></span> 
 												    <select class="form-select">
-													  <option>Active</option>
-													  <option>Settled</option>
-													  <option>Blacklist</option>
-													  <option>Extend Due Date</option>
+													  <option>bmcs</option>
+													  <option>ict</option>
+													  <option>maths</option>
 													</select>
 											</div>
 											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Due Date  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-calendar-plus"></i></span> 
-												  <input type="date" class="form-control" value="29/03/2022">
+												  <span class="input-group-text">Venue  &nbsp;<i class="fa-solid fa-address-card"></i></span> 
+												   <input type="text" class="form-control" id="venue" name="venue" value="venue" disabled>
+											</div>
+											
+											<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Exam Name  &nbsp; <i class="fa-brands fa-nfc-directional"></i></i></span> 
+												   <input type="text" class="form-control" id="examName" name="examName" value ="examName" disabled>
+											</div>
+											
+											<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Exam Code &nbsp;<i class="fa-brands fa-nfc-directional"></i></span> 
+												 <input type="text" class="form-control" id="examCode" name="examCode" value="Exam Code" disabled>
+											</div>
+											<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">students Present &nbsp;<i class="fa-solid fa-user-check"></i></span> 
+												  
+												   <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" value="studentsPresent" disabled>
+											</div>
+											<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Collected By  &nbsp;<i class="fa-solid fa-user-check"></i></span> 
+												   <input type="text" class="form-control" id="collectedBy" name="collectedBy" value="Collected By" disabled>
+											</div>
+											
+											<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Exam Day Time  &nbsp;<i class="fa-solid fa-calendar-plus"></i></span> 
+												   <input type="datetime-local" class="form-control" id="examdaytime" name="examdaytime" >
 											</div>
 											
 											<div class="text-right">
@@ -262,216 +262,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
                 </div>
             </div>
         </div>
-		
-        <!-- creditworthynessModal Modals-->
-        <!-- creditworthynessModal modal popup-->
-        <div class="portfolio-modal modal fade" id="creditworthynessModal"  role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <span class="display-6 text-uppercase">Creditworthiness</span><span class="close-modal" data-bs-dismiss="modal"><img src="../assets/img/close-icon.svg" alt="Close modal" /></span>
-                    <div class="container">
-                        <div class="justify-content-center">
-						  <div class="">
-                            <div class="m-4 p-4 shadow">
-                                <div class="modal-body">
-								
-								
-								<div class="">  <!--<div class="card mb-3 shadow">-->
-								  <div class="row g-0">
-									<div class="col-md-4 my-4">
-									  <img src="../assets/img/creditscore.png" class="img-fluid rounded-start" alt="...">
-									</div>
-									<div class="col-md-8">
-									  <div class="card-body">
-										<form action="#">
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-check"></i></span> 
-												  <input type="button" class="form-control" value="Francis Mrongo" disabled>
-											</div>
-
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">National ID  &nbsp;<i class="fa-solid fa-address-card"></i></span> 
-												  <input type="button" class="form-control" value="28213265" disabled>
-											</div>
-											
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa-solid fa-check-double"></i></span> 
-												  <input type="button" class="form-control" value="Bad" disabled>
-											</div>
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Description  &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-file-medical"></i></span> 
-												  <input type="button" class="form-control" value="High risk" disabled>
-											</div>
-											
-											
-										  </form>
-									  </div>
-									</div>
-									
-									
-								  </div>
-								</div>
-									<!--<div class="p-4">												
-										<button class="btn btn-secondary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-											<i class="fas fa-xmark me-1"></i>
-											Cancel
-										</button>
-									</div> -->			                                    
-                                    
-                                </div>
-                            </div>
-						  </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="creditmodal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-				    <!--<img class="" src="assets/img/denihub.jpg" alt="..." />-->
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="">
-                                <div class="modal-body">
-										<form action="#">
-										  <div class="row align-items-stretch mb-5">
-										    <p class="display-6">Debtors Information</p>
-										    <div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
-													  <input type="text" class="form-control" id="names" placeholder="Enter debtors name" name="dnames">
-												</div>
-
-												 <div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
-													  <input type="text" class="form-control" id="idnumber" placeholder="Enter debtors national ID number" name="d_idnumber">
-												</div>
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-													  <input type="text" class="form-control" id="phone" placeholder="Enter debtors phone number" name="d_phone">
-												</div>
-												
-												
-										
-											</div>
-											<div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
-													  <input type="number" class="form-control" id="amount" placeholder="Enter amount to credit" name="d_amount">
-												</div>
-												
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-													  <input type="email" class="form-control" id="email" placeholder="Enter debtors email" name="d_email">
-												</div>
 			
-												<div class="form-floating mb-3 mt-3">
-												  <input type="date" class="form-control" id="d_date" placeholder="Enter loan maturity date" name="d_date">
-												  <label for="d_date">Enter loan maturity date</label>
-												</div>
-												 
-												
-																
-											</div>
-											</div>
-											<div class="text-right">
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="submit">
-													<i class="fa-solid fa-circle-check"></i>
-													Credit
-												</button>
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-													<i class="fas fa-xmark me-1"></i>
-													Cancel
-												</button>
-											</div>
-										  </form>
-                                  </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-		
-		
-		 <!-- Users modal popup-->
-        <div class="portfolio-modal modal fade" id="activeusers" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-				    <!--<img class="" src="assets/img/denihub.jpg" alt="..." />-->
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="">
-                                <div class="modal-body">
-										<form action="#">
-										  <div class="row align-items-stretch mb-5">
-										    <p class="display-6">Active Users</p>
-										    <div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
-													  <input type="text" class="form-control" id="names" placeholder="Enter debtors name" name="dnames">
-												</div>
-
-												 <div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
-													  <input type="text" class="form-control" id="idnumber" placeholder="Enter debtors national ID number" name="d_idnumber">
-												</div>
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-													  <input type="text" class="form-control" id="phone" placeholder="Enter debtors phone number" name="d_phone">
-												</div>
-												
-												
-										
-											</div>
-											<div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
-													  <input type="number" class="form-control" id="amount" placeholder="Enter amount to credit" name="d_amount">
-												</div>
-												
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-													  <input type="email" class="form-control" id="email" placeholder="Enter debtors email" name="d_email">
-												</div>
-			
-												<div class="form-floating mb-3 mt-3">
-												  <input type="date" class="form-control" id="d_date" placeholder="Enter loan maturity date" name="d_date">
-												  <label for="d_date">Enter loan maturity date</label>
-												</div>
-												 
-												
-																
-											</div>
-											</div>
-											<div class="text-right">
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="submit">
-													<i class="fa-solid fa-circle-check"></i>
-													Credit
-												</button>
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-													<i class="fas fa-xmark me-1"></i>
-													Cancel
-												</button>
-											</div>
-										  </form>
-                                  </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
