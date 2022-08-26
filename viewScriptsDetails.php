@@ -186,17 +186,9 @@ if ($_SESSION['role'] !=  'Exam Officer')
 									<div class="col-md-8">
 									  <div class="card-body">
 										<form action="#">
-										  	<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Department &nbsp; <i class="fa-brands fa-nfc-directional"></i></span> 
-												    <select class="form-select">
-													  <option>bmcs</option>
-													  <option>ict</option>
-													  <option>maths</option>
-													</select>
-											</div>
 											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Venue  &nbsp;<i class="fa-solid fa-address-card"></i></span> 
-												   <input type="text" class="form-control" id="venue" name="venue" value="venue" disabled>
+												  <span class="input-group-text">lecturesName  &nbsp;<i class="fa-solid fa-address-card"></i></span> 
+												   <input type="text" class="form-control" id="lecturesName" name="lecturesName" value="lectures Name" disabled>
 											</div>
 											
 											<div class="input-group mb-3 input-group-lg">
@@ -209,18 +201,20 @@ if ($_SESSION['role'] !=  'Exam Officer')
 												 <input type="text" class="form-control" id="examCode" name="examCode" value="Exam Code" disabled>
 											</div>
 											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">students Present &nbsp;<i class="fa-solid fa-user-check"></i></span> 
+												  <span class="input-group-text">Number Of Scripts &nbsp;<i class="fa-solid fa-user-check"></i></span> 
 												  
-												   <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" value="studentsPresent" disabled>
+												   <input type="text" class="form-control" id="numberOfScripts" name="numberOfScripts" value="numberOfScripts" disabled>
 											</div>
 											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Collected By  &nbsp;<i class="fa-solid fa-user-check"></i></span> 
-												   <input type="text" class="form-control" id="collectedBy" name="collectedBy" value="Collected By" disabled>
+												  <span class="input-group-text">Lecturer`s Contact  &nbsp;<i class="fa-solid fa fa-phone"></i></span> 
+												   <input type="text" class="form-control" id="LecturerContact" name="LecturerContact" value="070800936" disabled>
 											</div>
-											
-											<div class="input-group mb-3 input-group-lg">
-												  <span class="input-group-text">Exam Day Time  &nbsp;<i class="fa-solid fa-calendar-plus"></i></span> 
-												   <input type="datetime-local" class="form-control" id="examdaytime" name="examdaytime" >
+												<div class="input-group mb-3 input-group-lg">
+												  <span class="input-group-text">Status &nbsp; <i class="fa-brands fa-nfc-directional"></i></span> 
+												    <select class="form-select">
+													  <option>Pick</option>
+													  <option>Return</option>
+													</select>
 											</div>
 											
 											<div class="text-right">
