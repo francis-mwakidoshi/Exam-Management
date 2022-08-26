@@ -81,6 +81,7 @@ require 'mysqlConnect.php';
 								</div>
 							  </div>
 							  </br>
+							  <div class="password">
 							   <div class="form-group">
 								<div class="col-sm-10">
 								  <input type="text" class="form-control" id="password" name="password" placeholder="Enter Password">
@@ -89,9 +90,11 @@ require 'mysqlConnect.php';
 							    </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="password_confirm" name="password_confirm" placeholder="Enter Confirm Password">
+								  <input type="text" class="form-control" id="confirm_password" name="password_confirm" placeholder="Enter Confirm Password" onkeyup="validate_password()">
 								</div>
 							  </div>
+							  </div>
+							  <span id="wrong_pass_alert"></span>
 							  </br>
 							   <div class="form-group">
 							   <div class="col-sm-10">
@@ -516,5 +519,26 @@ require 'mysqlConnect.php';
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		
+			<script>
+		function validate_password() {
+
+			var password = document.getElementById('password').value;
+			var confirm_password = document.getElementById('confirm_password').value;
+			if (password != confirm_password) {
+				document.getElementById('wrong_pass_alert').style.color = 'red';
+				document.getElementById('wrong_pass_alert').innerHTML
+				= '☒ Use same password';
+				document.getElementById('create').disabled = true;
+				document.getElementById('create').style.opacity = (0.4);
+			} else {
+				document.getElementById('wrong_pass_alert').style.color = 'green';
+				document.getElementById('wrong_pass_alert').innerHTML =
+					'🗹 Password Matched';
+				document.getElementById('create').disabled = false;
+				document.getElementById('create').style.opacity = (1);
+			}
+		}
+	</script>
     </body>
 </html>
