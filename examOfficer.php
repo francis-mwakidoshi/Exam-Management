@@ -45,7 +45,7 @@ require 'mysqlConnect.php';
 								Sarah<i class="fa-solid fa-user"></i>
 							  </button>
 							  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li><a class="dropdown-item" href="../index.html">logout</a></li>
+								<li><a class="dropdown-item" href="logout.php">logout</a></li>
 							  </ul>
 							</div>
                         

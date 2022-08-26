@@ -23,7 +23,7 @@ if(isset($_POST['register'])){
 		exit();
 	}
 	else{
-		$_SESSION['userName']=$userName;
+		//$_SESSION['userName']=$userName;
 		$insert="INSERT INTO `users` (`id`, `fullName`, `userName`, `password`,`password_confirm`,`department`, `role`) VALUES (NULL, '$fullName', '$userName', '$password', '$password_confirm','$department', '$role')"; 	
 		$run_insert=mysqli_query($con,$insert);
 		if($run_insert){

@@ -30,71 +30,6 @@ require 'mysqlConnect.php';
                 <a class="btn btn-primary btn-xl text-uppercase" data-bs-toggle="modal" href="#loginModal">Login</a>
             </div>
         </header>
-       
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <!--<h3 class="section-subheading text-muted">For all your enquiries and feedback</h3>-->
-                </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-                </form>
-            </div>
-        </section>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -123,7 +58,7 @@ require 'mysqlConnect.php';
 						  <div class="col-lg-8">
                             <div class="m-4 p-4 shadow">
                                 <div class="modal-body">
-                                    <form action="index.php">
+                                    <form action="login.php" method="post" enctype="multipart/form-data">
 											<div class="input-group mb-3 input-group-lg">
 												  <span class="input-group-text"><i class="fa-solid fa-user-check"></i></span>
 												  <input type="text" class="form-control" id="userName" placeholder="Enter username" name="userName">
@@ -131,19 +66,12 @@ require 'mysqlConnect.php';
 
 											 <div class="input-group mb-3 input-group-lg">
 												  <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-												  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+												  <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
 											</div>
-											
-											
-											<!--<div class="form-check mb-3">
-											  <label class="form-check-label">
-												<input class="form-check-input" type="checkbox" name="remember"> Remember me
-											  </label>
-											</div> -->
 											<div class="p-4">
 												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" name="login" type="submit">
 													<i class="fa-solid fa-circle-check"></i>
-													Login
+													test
 												</button>
 												<button class="btn btn-secondary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
 													<i class="fas fa-xmark me-1"></i>
@@ -151,44 +79,6 @@ require 'mysqlConnect.php';
 												</button>
 											</div>
 										  </form>
-										  
-										  <?php
-												if(isset($_POST['login'])){
-												$password=mysqli_real_escape_string($con,$_POST['password']);
-												$userName=mysqli_real_escape_string($con,$_POST['userName']);
-
-												$sel="select * from users where userName='$userName'";
-												$result=mysqli_query($con,$sel);
-												if(mysqli_num_rows($result) > 0)
-												{
-
-												  while($row = mysqli_fetch_array($result))
-												  {
-													if(password_verify($password, $row["password"]))
-													{
-													  //return true
-													  $_SESSION['userName']=$userName;
-													  $_SESSION['role']=$row['role'];
-													  //echo"<script>window.open('home.php','_self')</script>";
-													  header("location: examOfficer.php");
-													}
-													else
-													{
-													  //return false
-													   echo"<script>alert('wrong user details,try again!')</script>";
-													   echo"<script>window.open('index.php','_self')</script>";
-													   exit();
-													}
-												  }
-												}
-												else{
-
-													echo"<script>alert('wrong user details,try again!')</script>";
-													echo"<script>window.open('index.php','_self')</script>";
-													exit();
-												}
-												}
-												?>
                                     
                                 </div>
                             </div>
@@ -198,87 +88,6 @@ require 'mysqlConnect.php';
                 </div>
             </div>
         </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-				    <!--<img class="" src="assets/img/denihub.jpg" alt="..." />-->
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="">
-                                <div class="modal-body">
-										<form action="/action_page.php">
-										  <div class="row align-items-stretch mb-5">
-										    <div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-person"></i></span>
-													  <input type="text" class="form-control" id="names" placeholder="Enter your name" name="names">
-												</div>
-
-												 <div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
-													  <input type="text" class="form-control" id="idnumber" placeholder="Enter your nationa ID number" name="idnumber">
-												</div>
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-													  <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" name="phone">
-												</div>
-												
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-													  <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
-												</div>
-												
-										
-											</div>
-											<div class="col-md-6">
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-briefcase"></i></span>
-													  <input type="text" class="form-control" id="businessname" placeholder="Enter your business name" name="businessname">
-												</div>
-												<!--<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-user-check"></i></span>
-													  <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
-												</div>-->
-
-												 <div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-													  <input type="password" class="form-control" id="pwd" placeholder="Enter your password" name="pswd">
-												</div>
-												<div class="input-group mb-3 input-group-lg">
-													  <span class="input-group-text"><i class="fa-solid fa-check-double"></i></span>
-													  <input type="password" class="form-control" id="pwd" placeholder="Confirm your password" name="pswd">
-												</div>
-														
-											</div>
-											</div>
-											<div class="text-right">
-												<div class="form-check mb-3">
-												  <label class="form-check-label">
-													<input class="form-check-input" type="checkbox" name="remember"> <a href="hub/termsAndConditions.html"> Terms and conditions</a>
-												  </label>
-												</div>
-														
-											
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="submit">
-													<i class="fa-solid fa-circle-check"></i>
-													Register
-												</button>
-												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-													<i class="fas fa-xmark me-1"></i>
-													Cancel
-												</button>
-											</div>
-										  </form>
-                                  </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 		
         <!-- Bootstrap core JS-->
