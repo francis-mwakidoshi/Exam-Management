@@ -178,8 +178,8 @@ if ($_SESSION['role'] !=  'Exam Officer')
 							<td><?php echo $department; ?></td>
 							<td><?php echo $role; ?></td>
 							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
-							<!-- <td><a href="audit.php? delete=<?php echo $id; ?>" class="delete">Delete</a></td> -->
+							<td><a href="examOfficer.php? delete=<?php echo $id; ?>" class="delete"><button type="button" class="btn btn-danger btn-sm">Delete Record</button></a></td>
+	
 							</tr>
 							<?php
 								} ?>
@@ -196,6 +196,21 @@ if ($_SESSION['role'] !=  'Exam Officer')
 						</tr>
 					</tfoot>
 				</table>
+				  	<?php
+						if (isset($_GET['delete']))
+						{
+							$delete_id = $_GET['delete'];
+							$delete = "DELETE FROM `users` WHERE `users`.`id` ='$delete_id'";
+							$run_delete = mysqli_query($con, $delete);
+							if ($run_delete)
+							{
+								echo "<script>alert('Record deleted successfully')</script>";
+								echo "<script>window.open('examOfficer.php','_self')</script>";
+							}
+						}
+                 ?>
+			
+  
 			  </div>
 			</div>
 			</div>
@@ -551,6 +566,16 @@ if ($_SESSION['role'] !=  'Exam Officer')
 			}
 		}
 	</script>
+	
+	 <script>
+			  $('a.delete').on('click', function() {
+				var choice = confirm('Do you really want to delete this record?');
+				if(choice === true) {
+					return true;
+				}
+				return false;
+			});
+  </script>
     </body>
 </html>
 <?php

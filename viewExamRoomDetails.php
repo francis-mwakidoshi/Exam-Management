@@ -118,8 +118,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
 							<td><?php echo $collectedBy; ?></td>
 							<td><?php echo $examdaytime; ?></td>
 							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
-							<!-- <td><a href="audit.php? delete=<?php echo $id; ?>" class="delete">Delete</a></td> -->
+							<td><a href="viewExamRoomDetails.php? delete=<?php echo $id; ?>" class="delete"><button type="button" class="btn btn-danger btn-sm">Delete Record</button></a></td>
 							</tr>
 							<?php
 								} ?>
@@ -139,6 +138,20 @@ if ($_SESSION['role'] !=  'Exam Officer')
 						</tr>
 					</tfoot>
 				</table>
+				
+				<?php
+						if (isset($_GET['delete']))
+						{
+							$delete_id = $_GET['delete'];
+							$delete = "DELETE FROM `examroomdetails` WHERE `examroomdetails`.`id` ='$delete_id'";
+							$run_delete = mysqli_query($con, $delete);
+							if ($run_delete)
+							{
+								echo "<script>alert('Record deleted successfully')</script>";
+								echo "<script>window.open('viewExamRoomDetails.php','_self')</script>";
+							}
+						}
+                 ?>
 		
 			</div>
         </section>    
@@ -147,7 +160,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
         <footer class="footer py-4 bg-dark text-white">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Denihub 2022</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; TUK 2022</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -472,6 +485,15 @@ if ($_SESSION['role'] !=  'Exam Officer')
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		 <script>
+			  $('a.delete').on('click', function() {
+				var choice = confirm('Do you really want to delete this record?');
+				if(choice === true) {
+					return true;
+				}
+				return false;
+			});
+  </script>
     </body>
 </html>
 <?php
