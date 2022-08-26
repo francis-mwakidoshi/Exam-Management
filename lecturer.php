@@ -68,45 +68,45 @@ require 'mysqlConnect.php';
 						 <form class="form-horizontal"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 							  <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="department" name="department" placeholder="Enter Department">
+								  <input type="text" class="form-control" id="department" name="department" placeholder="Enter Department" required>
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="venue" name="venue" placeholder="Enter Exam Venue">
+								  <input type="text" class="form-control" id="venue" name="venue" placeholder="Enter Exam Venue" required>
 								</div>
 							  </div>
 							    </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examName" name="examName" placeholder="Enter Exam Name">
+								  <input type="text" class="form-control" id="examName" name="examName" placeholder="Enter Exam Name" required>
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examCode" name="examCode" placeholder="Enter Exam Code">
+								  <input type="text" class="form-control" id="examCode" name="examCode" placeholder="Enter Exam Code" required>
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" placeholder="Enter number of students present">
+								  <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" placeholder="Enter number of students present" required>
 								</div>
 							  </div>
 							
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="collectedBy" name="collectedBy" placeholder="Enter Collected By">
+								  <input type="text" class="form-control" id="collectedBy" name="collectedBy" placeholder="Enter Collected By" required>
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
 								    <label for="examdaytime">Date collected (date and time):</label>
-								   <input type="datetime-local" class="form-control" id="examdaytime" name="examdaytime">
+								   <input type="datetime-local" class="form-control" id="examdaytime" name="examdaytime" required>
 								</div>
 							  </div>
 							  </br>

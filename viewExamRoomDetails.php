@@ -1,3 +1,6 @@
+<?php
+require 'mysqlConnect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -62,6 +65,7 @@
 				   <table id="example" class="table table-striped table-hover" style="width:100%">
 					<thead>
 						<tr>
+						    <th>ID</th>
 						    <th>Department</th>
 							<th>Exam Venue</th>
 							<th>Exam Name</th>
@@ -74,32 +78,44 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Sarah N</td>
-							<td>test</td>
-							<td>ICT</td>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>BMCS</td>
-							<td>BMCS</td>
+					
+					  <?php
+								$sel = "select * from examroomdetails";
+								$run = mysqli_query($con, $sel);
+								$i = 0;
+								while ($row = mysqli_fetch_array($run))
+								{
+				
+									$id = $row['id'];
+									$department = $row['department'];
+									$venue = $row['venue'];
+									$examName = $row['examName'];
+									$examCode = $row['examCode'];
+									$studentsPresent = $row['studentsPresent'];
+									$collectedBy = $row['collectedBy'];
+									$examdaytime = $row['examdaytime'];
+									$i++;
+							?>
+							<tr>
+							<td><?php echo $id; ?></td>
+							<td><?php echo $department; ?></td>
+							<td><?php echo $venue; ?></td>
+							<td><?php echo $examName; ?></td>
+							<td><?php echo $examCode; ?></td>
+							<td><?php echo $studentsPresent; ?></td>
+							<td><?php echo $collectedBy; ?></td>
+							<td><?php echo $examdaytime; ?></td>
 							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
 							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
-						</tr>
-						<tr>
-							<td>Francis M</td>
-							<td>admin</td>
-							<td>IT</td>
-							<td>Francis M</td>
-							<td>test</td>
-							<td>BMCS</td>
-							<td>BMCS</td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#">Update Record</button></td>
-							<td><button type="button" class="btn btn-danger btn-sm">Delete Record</button></td>
-						</tr>
+							<!-- <td><a href="audit.php? delete=<?php echo $id; ?>" class="delete">Delete</a></td> -->
+							</tr>
+							<?php
+								} ?>
 					</tbody>
 					<tfoot>
 						<tr>
-						  <th>Department</th>
+						    <th>ID</th>
+						    <th>Department</th>
 							<th>Exam Venue</th>
 							<th>Exam Name</th>
 							<th>Exam Code</th>
