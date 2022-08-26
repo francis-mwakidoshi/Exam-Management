@@ -49,7 +49,8 @@ if ($_SESSION['role'] !=  'Exam Officer')
 				  <div class="col-sm-6 clearfix">
                     <ul class="navbar-nav float-end ms-auto py-4 py-lg-0"> 
                         <li class="nav-item"><a class="nav-link" href="viewExamRoomDetails.php">View Exam Room Details</a></li>	
-                        <li class="nav-item"><a class="nav-link" href="viewScriptsDetails.php">View Scripts Details</a></li>							
+                        <li class="nav-item"><a class="nav-link" href="viewScriptsDetails.php">View Scripts Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="lecturer.php" target="_blank">Lecturer Form</a></li>						
 						<li class="nav-item">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
