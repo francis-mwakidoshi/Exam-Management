@@ -245,13 +245,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
 									
 									
 								  </div>
-								</div>
-									<!--<div class="p-4">												
-										<button class="btn btn-secondary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-											<i class="fas fa-xmark me-1"></i>
-											Cancel
-										</button>
-									</div> -->			                                    
+								</div>		                                    
                                     
                                 </div>
                             </div>
