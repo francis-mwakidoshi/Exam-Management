@@ -174,8 +174,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
             </div>
         </footer>
 		
-		<!-- debtorupdateModal Modals-->
-        <!-- debtorupdateModal modal popup-->
+        <!-- roomUpdateModal modal popup-->
         <div class="portfolio-modal modal fade" id="roomUpdateModal"  role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
