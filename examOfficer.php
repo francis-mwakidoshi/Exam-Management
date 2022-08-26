@@ -64,28 +64,34 @@
 					<div class="card text-dark bg-light m-2">
 					  <h5 class="card-header">Create New User</h5>
 					  <div class="card-body">
-						 <form class="form-horizontal" action="/action_page.php">
+						 <form class="form-horizontal" action="register.php" method="post">
 						   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="fullName" placeholder="Enter Full Names">
+								  <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter Full Names">
 								</div>
 							  </div>
 							  </br>
 							  <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="userName" placeholder="Enter UserName">
+								  <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter UserName">
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="password" placeholder="Enter Password">
+								  <input type="text" class="form-control" id="password" name="password" placeholder="Enter Password">
+								</div>
+							  </div>
+							    </br>
+							   <div class="form-group">
+								<div class="col-sm-10">
+								  <input type="text" class="form-control" id="password_confirm" name="password_confirm" placeholder="Enter Confirm Password">
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 							   <div class="col-sm-10">
-								<select class="form-select">
+								<select class="form-select" name="department">
 								  <option>---Select Department--</option>
 								  <option>IT</option>
 								  <option>BMCS</option>
@@ -96,7 +102,7 @@
 							  </br>
 							     <div class="form-group">
 							   <div class="col-sm-10">
-								<select class="form-select">
+								<select class="form-select" name="role">
 								  <option>---Select Role--</option>
 								  <option>Exam Officer</option>
 								  <option>Lecturer</option>
@@ -106,7 +112,7 @@
 							  </br>
 							  <div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
+								  <button type="submit" class="btn btn-primary" name="register" style= "float:right;">Submit</button>
 								</div>
 							  </div>
 							</form>
