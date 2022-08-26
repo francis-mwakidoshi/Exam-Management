@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'mysqlConnect.php';
 ?> 
 <!DOCTYPE html>
@@ -39,10 +40,10 @@ require 'mysqlConnect.php';
 						<li class="nav-item">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-								Sarah<i class="fa-solid fa-user"></i>
+								<?php echo $_SESSION['userName']; ?><i class="fa-solid fa-user"></i>
 							  </button>
 							  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li><a class="dropdown-item" href="../index.html">logout</a></li>
+								<li><a class="dropdown-item" href="logout.php">logout</a></li>
 							  </ul>
 							</div>
                         

@@ -8,7 +8,7 @@ require 'mysqlConnect.php';
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="debt" />
-        <meta name="author" content="emmanuel" />
+        <meta name="author" content="Francis" />
         <title>TUK -Examination Material Handling Management System</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -42,7 +42,7 @@ require 'mysqlConnect.php';
 						<li class="nav-item">
 							<div class="dropdown">
 							  <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-								Sarah<i class="fa-solid fa-user"></i>
+								<?php echo $_SESSION['userName']; ?><i class="fa-solid fa-user"></i>
 							  </button>
 							  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 								<li><a class="dropdown-item" href="logout.php">logout</a></li>
