@@ -65,41 +65,41 @@ require 'mysqlConnect.php';
 					<div class="card text-dark bg-light m-2">
 					  <h5 class="card-header">Exam Room Details</h5>
 					  <div class="card-body">
-						 <form class="form-horizontal" action="/action_page.php">
+						 <form class="form-horizontal"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 							  <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="department" placeholder="Enter Department">
+								  <input type="text" class="form-control" id="department" name="department" placeholder="Enter Department">
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="venue" placeholder="Enter Exam Venue">
+								  <input type="text" class="form-control" id="venue" name="venue" placeholder="Enter Exam Venue">
 								</div>
 							  </div>
 							    </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examName" placeholder="Enter Exam Name">
+								  <input type="text" class="form-control" id="examName" name="examName" placeholder="Enter Exam Name">
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examCode" placeholder="Enter Exam Code">
+								  <input type="text" class="form-control" id="examCode" name="examCode" placeholder="Enter Exam Code">
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="studentsPresent" placeholder="Enter number of students present">
+								  <input type="text" class="form-control" id="studentsPresent" name="studentsPresent" placeholder="Enter number of students present">
 								</div>
 							  </div>
 							
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="collectedBy" placeholder="Enter Collected By">
+								  <input type="text" class="form-control" id="collectedBy" name="collectedBy" placeholder="Enter Collected By">
 								</div>
 							  </div>
 							  </br>
@@ -112,10 +112,48 @@ require 'mysqlConnect.php';
 							  </br>
 							  <div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
+								  <button name="subExam" type="submit" class="btn btn-primary" style= "float:right;">Submit</button>
 								</div>
 							  </div>
 							</form>
+							
+											<?php 
+			if(isset($_POST['subExam'])){
+				
+				$department=mysqli_real_escape_string($con,$_POST['department']);
+				$venue = mysqli_real_escape_string($con,$_POST['venue']);
+				$examName=mysqli_real_escape_string($con,$_POST['examName']);
+				$examCode=mysqli_real_escape_string($con,$_POST['examCode']);
+				$studentsPresent=mysqli_real_escape_string($con,$_POST['studentsPresent']);
+				$collectedBy=mysqli_real_escape_string($con,$_POST['collectedBy']);
+				$examdaytime=mysqli_real_escape_string($con,$_POST['examdaytime']);
+
+
+			  if($department=='' || $venue==''|| $examName=='' || $examCode=='' || $studentsPresent=='' || $collectedBy=='' || $examdaytime==''){
+				echo"<script>alert('please fill all field')</script>";
+			    echo"<script>window.open('lecturer.php','_self')</script>";
+				//exit();
+			  }
+
+			else{
+
+				$insert="INSERT INTO `examroomdetails` (`id`, `department`, `venue`, `examName`, `examCode`, `studentsPresent`, `collectedBy` , `examdaytime`) VALUES (NULL, '$department', '$venue', '$examName', '$examCode', '$studentsPresent', '$collectedBy' , '$examdaytime')";
+				$run_insert=mysqli_query($con,$insert);
+				echo $run_insert;
+				if($run_insert){
+					echo"<script>alert('Successful added!')</script>";
+					echo"<script>window.open('lecturer.php','_self')</script>";
+
+				}
+				else{
+					
+					//echo "test";
+					  echo"<script>alert('Error please try again')</script>";
+					  echo"<script>window.open('lecturer.php','_self')</script>";
+				}
+		}}
+
+		?>
 					  </div>
 					</div> 
 					
@@ -126,51 +164,89 @@ require 'mysqlConnect.php';
 					<div class="card text-dark bg-light m-2">
 					  <h5 class="card-header">Scripts Collection| Return Form</h5>
 					  <div class="card-body">
-						 <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+						 <form class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 							  <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="lecturesName" placeholder="Enter Lecturer`s Name">
+								  <input type="text" class="form-control" name="lecturesName" placeholder="Enter Lecturer`s Name" required>
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examName" placeholder="Enter Exam Name">
+								  <input type="text" class="form-control" name="examName" placeholder="Enter Exam Name" required>
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="examCode" placeholder="Enter Exam Code">
+								  <input type="text" class="form-control" name="examCode" placeholder="Enter Exam Code" required>
 								</div>
 							  </div>
 							  </br>
 							   <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="numberOfScripts" placeholder="Enter Number of Scripts">
+								  <input type="text" class="form-control" name="numberOfScripts" placeholder="Enter Number of Scripts" required>
 								</div>
 							  </div>
 							  </br>
 							    <div class="form-group">
 								<div class="col-sm-10">
-								  <input type="text" class="form-control" id="LecturerContact" placeholder="Enter Lecturer`s Contact">
+								  <input type="text" class="form-control" name="LecturerContact" placeholder="Enter Lecturer`s Contact" required>
 								</div>
 							  </div>
 							 </br>
 							   <label class="radio-inline">
-								  <input type="radio" name="status" checked>Pick
+								  <input type="radio" name="status"  value="picked" required>Pick
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="status">Return
+								  <input type="radio" name="status"  value="returned" required>Return
 								</label>
 								
 							  </br>
 							  <div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								  <button type="submit" class="btn btn-primary" name="subScript" style= "float:right;">Submit</button>
+								
+								<button name="subScript" type="submit" class="btn btn-primary"  style= "float:right;">Submit</button>
 								</div>
 							  </div>
 							</form>
+							
+							<?php 
+			if(isset($_POST['subScript'])){
+				
+				$lecturesName=mysqli_real_escape_string($con,$_POST['lecturesName']);
+				$examName = mysqli_real_escape_string($con,$_POST['examName']);
+				$examCode=mysqli_real_escape_string($con,$_POST['examCode']);
+				$numberOfScripts=mysqli_real_escape_string($con,$_POST['numberOfScripts']);
+				$LecturerContact=mysqli_real_escape_string($con,$_POST['LecturerContact']);
+				$status=mysqli_real_escape_string($con,$_POST['status']);
+
+
+			  if($lecturesName=='' || $examName==''|| $examCode=='' || $numberOfScripts=='' || $LecturerContact=='' || $status==''){
+				echo"<script>alert('please fill all field')</script>";
+			    echo"<script>window.open('lecturer.php','_self')</script>";
+				//exit();
+			  }
+
+			else{
+
+				$insert="INSERT INTO `scriptscollection` (`id`, `lecturesName`, `examName`, `examCode`, `numberOfScripts`, `LecturerContact`, `status`) VALUES (NULL, '$lecturesName', '$examName', '$examCode', '$numberOfScripts', '$LecturerContact', '$status')";
+				$run_insert=mysqli_query($con,$insert);
+				echo $run_insert;
+				if($run_insert){
+					echo"<script>alert('Successful added!')</script>";
+					echo"<script>window.open('lecturer.php','_self')</script>";
+
+				}
+				else{
+					
+					//echo "test";
+					  echo"<script>alert('Error please try again')</script>";
+					  echo"<script>window.open('lecturer.php','_self')</script>";
+				}
+		}}
+
+		?>
 					 
 					</div>
 					
@@ -215,38 +291,5 @@ require 'mysqlConnect.php';
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-		
-		<?php 
-			if(isset($_POST['subScript'])){
-				$lecturesName=mysqli_real_escape_string($con,$_POST['lecturesName']);
-				$examName = mysqli_real_escape_string($con,$_POST['examName']);
-				$examCode=mysqli_real_escape_string($con,$_POST['examCode']);
-				$numberOfScripts=mysqli_real_escape_string($con,$_POST['numberOfScripts']);
-				$LecturerContact=mysqli_real_escape_string($con,$_POST['LecturerContact']);
-				$status=mysqli_real_escape_string($con,$_POST['status']);
-
-
-			   if($lecturesName==''&& $examName==''&& $examCode=='' && $numberOfScripts=='' && $LecturerContact==''){
-				echo"<script>alert('please fill all field')</script>";
-				echo"<script>window.open('lecturer.php','_self')</script>";
-				exit();
-			 }
-
-			else{
-
-				$insert="INSERT INTO `scriptscollection` (`id`, `lecturesName`, `examName`, `examCode`, `numberOfScripts` , `LecturerContact`,'status') VALUES (NULL, '$lecturesName', '$examName', '$examCode', '$numberOfScripts' , '$LecturerContact','$status');";
-				$run_insert=mysqli_query($con,$insert);
-				if($run_insert){
-					echo"<script>alert('Successful added!')</script>";
-					echo"<script>window.open('lecturer.php','_self')</script>";
-
-				}
-				else{
-					echo"<script>alert('Error please try again')</script>";
-					echo"<script>window.open('lecturer.php','_self')</script>";
-				}
-		}}
-
-		?>
     </body>
 </html>
