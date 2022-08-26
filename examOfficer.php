@@ -1,13 +1,24 @@
 <?php
 session_start();
 require 'mysqlConnect.php';
+if (!$_SESSION['userName'])
+{
+    header("location: index.php");
+}
+else
+{
+
+if ($_SESSION['role'] !=  'Exam Officer')
+{
+    header("location: lecturer.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="debt" />
+        <meta name="description" content="exam" />
         <meta name="author" content="Francis" />
         <title>TUK -Examination Material Handling Management System</title>
         <!-- Favicon-->
@@ -542,3 +553,5 @@ require 'mysqlConnect.php';
 	</script>
     </body>
 </html>
+<?php
+} ?>

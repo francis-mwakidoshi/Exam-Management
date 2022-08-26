@@ -7,8 +7,8 @@ require 'mysqlConnect.php';
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="debt" />
-        <meta name="author" content="emmanuel" />
+        <meta name="description" content="exam" />
+        <meta name="author" content="francis" />
         <title>TUK - Examination Material Handling Management System</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -71,7 +71,7 @@ require 'mysqlConnect.php';
 											<div class="p-4">
 												<button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" name="login" type="submit">
 													<i class="fa-solid fa-circle-check"></i>
-													test
+													Login
 												</button>
 												<button class="btn btn-secondary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
 													<i class="fas fa-xmark me-1"></i>
