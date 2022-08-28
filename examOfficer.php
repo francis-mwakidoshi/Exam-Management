@@ -178,7 +178,8 @@ if ($_SESSION['role'] !=  'Exam Officer')
 							<td><?php echo $userName; ?></td>
 							<td><?php echo $department; ?></td>
 							<td><?php echo $role; ?></td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" href="#userUpdateModal">Update Record</button></td>
+							<td><a href="updateUser.php? edit=<?php echo $id; ?>"><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" >Update Record</button></a></td>
+							<!--<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" href="#userUpdateModal">Update Record</button></td> -->
 							<td><a href="examOfficer.php? delete=<?php echo $id; ?>" class="delete"><button type="button" class="btn btn-danger btn-sm">Delete Record</button></a></td>
 	
 							</tr>
