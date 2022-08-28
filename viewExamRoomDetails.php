@@ -117,7 +117,7 @@ if ($_SESSION['role'] !=  'Exam Officer')
 							<td><?php echo $studentsPresent; ?></td>
 							<td><?php echo $collectedBy; ?></td>
 							<td><?php echo $examdaytime; ?></td>
-							<td><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" href="#roomUpdateModal">Update Record</button></td>
+							<td><a href="updateExam.php? edit=<?php echo $id; ?>"><button type="button" class="btn btn-warning  btn-sm" data-bs-toggle="modal" data-bs-target="#" >Update Record</button></a></td>
 							<td><a href="viewExamRoomDetails.php? delete=<?php echo $id; ?>" class="delete"><button type="button" class="btn btn-danger btn-sm">Delete Record</button></a></td>
 							</tr>
 							<?php
